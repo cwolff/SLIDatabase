@@ -1,0 +1,47 @@
+* - This is a simple entry program to create an update file for
+* - generators/transporters and tsd facilities.
+SET TALK OFF
+USE TRACDAT
+* - enter date to print
+ACCEPT 'Enter date as mm/dd/yy' TO DATE
+DO WHILE T
+   ?
+   ?
+   ?
+   ? '         TRACDAT updating program'
+   ?
+   ?
+   ? '         0 - exit program'
+   ? '         1 - enter new data'
+   ? '         2 - edit existing data'
+   ? '         3 - print data listings'
+   ? '         4 - print labels'
+   ?
+   ? '  enter desired action'
+   *  - wait for user response
+   WAIT TO ACTION
+   IF ACTION='0'
+      SET TALK ON
+      CANCEL
+   ENDDIF
+   IF ACTION='1'
+      DO TRACENTR
+   ENDIF
+   IF ACTION='2'
+      DO TRACEDT
+   ENDIF
+   IF ACTION='3'
+      DO TRACLST
+   ENDIF
+   IF ACTION='4'
+      DO TRACLAB
+   ENDIF
+ENDO
+RETURN
+----------+---------------+'
+   @ 9,11 SAY   '!                PLEASE CHOOSE ONE:'
+   @ 9,64 SAY   '!'
+   @ 10,11 SAY   '!'
+   @ 10,26 SAY   'A- TO ADD DATA'
+   @ 10,64 SAY   '!'
+   @ 11,11 S
